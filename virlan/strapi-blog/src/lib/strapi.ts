@@ -1,8 +1,6 @@
-const STRAPI_API_URL = 'http://localhost:1337/api/blogs?populate=*'; // Strapi'nin çalıştığı port ve endpoint
-
-export async function fetchBlogs() {
+export async function fetchBlogs(apiUrl: string) {
   try {
-    const res = await fetch(STRAPI_API_URL);
+    const res = await fetch(apiUrl);
     if (!res.ok) throw new Error("Strapi'den veri alınamadı");
     const data = await res.json();
     return data.data;
